@@ -1,20 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Modal from '../components/Modal.astro';
+import ModalComponent from '../components/Modal.astro';
 ---
 
-<Layout title="Modal Example">
-  <button data-micromodal-trigger="modal-1">Open Modal</button>
+<Layout title="Password Recovery Example">
+  <button data-micromodal-trigger="modal-1">Recuperar Contraseña</button>
 
-  <Modal id="modal-1" title="Example Modal">
-    <p>This is the content of the modal. You can put any content here.</p>
+  <ModalComponent id="modal-1" title="Recuperar Contraseña">
+    <form id="password-recovery-form" 
+    class="form-container">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required  placeholder="coloca tu correo @"/>
+      </div>
+    </form>
+
     <slot name="actions">
-      <button class="modal__btn modal__btn-primary" onclick="console.log('Primary action clicked')">
-        Primary Action
-      </button>
-      <button class="modal__btn" data-micromodal-close>
-        Close
-      </button>
+      <div class="flex justify-cc">
+        <button class="modal__btn modal__btn-primary" type="submit" form="password-recovery-form">
+          Enviar Codigo
+        </button>
+        <button class="modal__btn" data-micromodal-close>
+          Cancelar
+        </button>
+      </div>
     </slot>
-  </Modal>
-</Layout> 
+  </ModalComponent>
+</Layout>
