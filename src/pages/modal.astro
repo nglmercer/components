@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Modal from '../components/Modal.astro';
+---
+
+<Layout title="Modal Example">
+  <button data-micromodal-trigger="modal-1">Open Modal</button>
+
+  <Modal id="modal-1" title="Example Modal">
+    <p>This is the content of the modal. You can put any content here.</p>
+    <slot name="actions">
+      <button class="modal__btn modal__btn-primary" onclick="console.log('Primary action clicked')">
+        Primary Action
+      </button>
+      <button class="modal__btn" data-micromodal-close>
+        Close
+      </button>
+    </slot>
+  </Modal>
+</Layout> 
